@@ -1,0 +1,80 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Top 10 Producers of Solar Electricity Over Time",
+    "data": {
+      "url": "world_energy_consumption.csv"
+    },
+    "vconcat": [
+      {
+        "encoding": {
+          "color": {
+            "condition": {
+              "param": "brush",
+              "title": "Continent",
+              "field": "continent",
+              "type": "nominal"
+            },
+            "value": "lightgray"
+          },
+          "x": {
+            "field": "year",
+            "type": "temporal",
+            "title": "Year"
+          },
+          "y": {
+            "field": "solar_electricity", "type": "quantitative",
+            "title": "Solar Electricity (terrawatt-hours)",
+            "axis": {"tickCount": 6},
+            "scale": {"type": "log", "domain": [0.001, 1000]}
+          },
+          "tooltip": [
+            {"field": "country", "type": "nominal"},
+            {"field": "solar_electricity", "type": "quantitative", "title": "Solar Electricity (twh)"}
+
+          ]
+        },
+        "width": 600,
+        "height": 300,
+        "mark": "point",
+        "params": [{
+          "name": "brush",
+          "select": {"type": "interval", "encodings": ["x"]}
+        }],
+        "transform": [
+            {"filter": "datum.year>1984"},
+            {"filter": "datum.country == 'United States' || datum.country == 'Italy' || datum.country == 'Australia' || datum.country == 'China' || datum.country == 'Japan' || datum.country == 'Germany' || datum.country == 'Spain' || datum.country == 'Switzerland' || datum.country == 'Canada' || datum.country == 'Netherlands'"},
+            {"filter": "datum.solar_electricity>0.001"},
+            {"filter": {"param": "click"}}]
+
+      },
+      {
+        "encoding": {
+          "color": {
+            "condition": {
+              "param": "click",
+              "field": "continent"
+            },
+            "value": "lightgray"
+          },
+          "x": {
+            "aggregate": "sum",
+            "field": "solar_electricity",
+            "type": "quantitative",
+            "title": "Total Solar Electricity Generates"
+        },
+          "y": {"title": "Continent", "field": "continent"}
+        },
+        "width": 600,
+        "mark": "bar",
+        "params": [{
+          "name": "click",
+          "select": {"type": "point", "encodings": ["color"]}
+        }],
+        "transform": [
+            {"filter": "datum.country == 'United States' || datum.country == 'Italy' || datum.country == 'Australia' || datum.country == 'China' || datum.country == 'Japan' || datum.country == 'Germany' || datum.country == 'Spain' || datum.country == 'Switzerland' || datum.country == 'Canada' || datum.country == 'Netherlands'"},
+            {"filter": "datum.solar_electricity>0.001"},
+            {"filter": {"param": "brush"}}
+        ]
+      }
+    ]
+  }
