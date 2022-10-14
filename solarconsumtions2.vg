@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Solar Electricity Consumption per capita (2019)",
+    "width": 400,
+    "height": 200,
+    "data":{
+        "url": "ne_110m_admin_0_countries.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+    },
+    "projection": {"type": "equalEarth"},
+    "layer": [
+        {
+            "transform": [
+                {
+                    "calculate": "'No data available for ' + datum.properties.NAME",
+                    "as": "note"
+                }
+            ],
+            "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+            "encoding": {"tooltip": {"field": "note"}}
+        },
+        {
+            "data": {
+              "url": "world_energy_consumption.csv"
+            },
+            "transform": [
+              {
+                "lookup": "country",
+                "from": {
+                  "data": {
+                    "url": "ne_110m_admin_0_countries.topojson",
+                    "format": {
+                      "type": "topojson",
+                      "feature": "ne_110m_admin_0_countries"
+                    }
+                  },
+                  "key": "properties.NAME"
+                },
+                "as": "geo"
+              },
+              {"filter": "datum.year == 2019"}
+            ],
+            "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 0.5},
+            "encoding": {
+              "shape": {"field": "geo", "type": "geojson"},
+              "color": {
+                "field": "solar_elec_per_capita",
+                "type": "quantitative",
+                "title": "Solar Electricity (kwh)",
+                "scale": {"domain": [0,800],"scheme": "greens"}
+              },
+              "tooltip": [
+                {"field": "country", "type": "nominal"},
+                {
+                  "field": "solar_elec_per_capita",
+                  "type": "quantitative",
+                  "title": "Solar Electricity (kwh)",
+                  "format": ","
+                },
+                {"field": "year", "type": "quantitative", "title": "Year"}
+              ]
+            }
+          }
+        ],
+        "config": {}
+      }
