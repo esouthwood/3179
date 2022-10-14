@@ -1,0 +1,14 @@
+#header {
+  padding: 10px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
+#multi_view {
+	top:100px;
+	bottom: 100px;
+	left: 100px;
+	right: 100px;
+}
