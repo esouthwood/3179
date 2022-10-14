@@ -12,3 +12,31 @@
 	left: 100px;
 	right: 100px;
 }
+
+#chloropleth_production {
+	top:100px;
+	bottom: 100px;
+	left: 100px;
+	right: 100px;
+}
+
+#chloropleth_consumption {
+	top:100px;
+	bottom: 100px;
+	left: 100px;
+	right: 100px;
+}
+
+#chloropleth_time_slider {
+	top:100px;
+	bottom: 100px;
+	left: 100px;
+	right: 100px;
+}
+
+#bar_chart {
+	top:100px;
+	bottom: 100px;
+	left: 100px;
+	right: 100px;
+}

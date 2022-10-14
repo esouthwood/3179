@@ -1,0 +1,85 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Share of Electricity Consumption from Solar Electricity",
+    "width": 800,
+    "height": 400,
+    "params": [
+      {
+        "name": "Year_selection",
+        "value": 2018,
+        "bind": {
+          "input": "range",
+          "min": 1995,
+          "max": 2019,
+          "step": 1,
+          "name": "Year:  "
+        }
+      }
+    ],
+    "layer": [
+      {
+        "data": {
+          "url": "ne_110m_admin_0_countries.topojson",
+          "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        },
+        "projection": {"type": "equalEarth"},
+        "transform": [
+          {
+            "calculate": "'Data is not available in ' + datum.properties.NAME",
+            "as": "note"
+          }
+        ],
+        "mark": {
+          "type": "geoshape",
+          "fill": "#ddd",
+          "stroke": "white",
+          "strokeWidth": 1
+        },
+        "encoding": {"tooltip": {"field": "note"}}
+      },
+      {
+        "data": {
+          "url": "world_energy_consumption.csv"
+        },
+        "transform": [
+          {
+            "lookup": "country",
+            "from": {
+              "data": {
+                "url": "ne_110m_admin_0_countries.topojson",
+                "format": {
+                  "type": "topojson",
+                  "feature": "ne_110m_admin_0_countries"
+                }
+              },
+              "key": "properties.NAME"
+            },
+            "as": "geo"
+          },
+          {"filter": "datum.year == Year_selection"}
+        ],
+        "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 0.5},
+        "encoding": {
+          "shape": {"field": "geo", "type": "geojson"},
+          "color": {
+            "field": "solar_share_elec",
+            "type": "quantitative",
+            "title": "Percent of Electricity Consumption (%)",
+            "scale": {"domain": [0, 20], "scheme": "tealblues"},
+            "legend": {"format": ".2"}
+          },
+          "tooltip": [
+            {"field": "country", "type": "nominal"},
+            {
+              "field": "solar_share_elec",
+              "type": "quantitative",
+              "title": "Share from Solar (%)",
+              "format": ","
+            },
+            {"field": "year", "type": "quantitative", "title": "Year"}
+          ]
+        }
+      }
+    ],
+    "config": {}
+  }
