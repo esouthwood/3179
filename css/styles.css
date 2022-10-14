@@ -1,11 +1,20 @@
+body {
+  background-color:  #D3D3D3;
+}
+
 #header {
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   background: #1abc9c;
   color: white;
   font-size: 30px;
 }
 
+#visualisations {
+  background-color: white;
+  margin: auto;
+  width: 80%;
+}
 #multi_view {
 	top:100px;
 	bottom: 100px;
