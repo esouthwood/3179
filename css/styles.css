@@ -10,11 +10,8 @@ body {
     background-color: lightgray;
 }
 
-#chloropleth_production{
-  width: 80%;
-}
 .page {
-    width: 850px;
+    width: 90%;
     background-color: white;
     margin: auto;
     padding: 50px;
