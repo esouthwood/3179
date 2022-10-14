@@ -13,13 +13,11 @@ body {
 #visualisations {
   background-color: white;
   margin: auto;
-  width: 80%;
+  width: 200px;
+  height: 100%
 }
 #multi_view {
-	top:100px;
-	bottom: 100px;
-	left: 100px;
-	right: 100px;
+
 }
 
 #chloropleth_production {
