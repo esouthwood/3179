@@ -1,0 +1,28 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": "COVID-19 Cases per Country (13 Oct 2020)",
+    "data": {
+        "url": "solar_power_by_country.csv"
+    },
+    "mark": "circle",
+    "encoding": {
+        "x": {
+        "field": "share_of_consumption",
+        "type": "quantitative"
+    },
+    "y": {
+        "field": "2020_New",
+        "type": "quantitative"
+    },
+    "color": {
+        "field": "Country",
+        "type": "nominal"
+    },
+    "size": {
+        "field": "W_per_capita_2019",
+        "type": "quantitative"
+    }
+}
+}
