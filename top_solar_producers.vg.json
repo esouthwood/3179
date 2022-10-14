@@ -1,8 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Top 10 Producers of Solar Electricity Over Time",
-    "width": 800,
-    "height": 400,
     "data": {
       "url": "world_energy_consumption.csv"
     },
