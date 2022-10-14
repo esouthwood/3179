@@ -1,50 +1,44 @@
+body *{
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-weight: 900;
+}
+
 body {
-  background-color:  #D3D3D3;
+    background-color: lightgray;
 }
 
-#header {
-  padding: 5px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
-  font-size: 30px;
+.page {
+    width: 850px;
+    background-color: white;
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
 }
 
-#visualisations {
-  background-color: white;
-  margin: auto;
-  width: 80%;
-  height: 100%
-}
-#multi_view {
-  margin: auto;
-  width: auto;
+.vis-container {
+    width: 100%;
 }
 
-#chloropleth_production {
-	top:100px;
-	bottom: 100px;
-	left: 100px;
-	right: 100px;
+.description h2,
+h1 {
+    margin-top: 0px;
 }
 
-#chloropleth_consumption {
-	top:100px;
-	bottom: 100px;
-	left: 100px;
-	right: 100px;
+.description-right {
+    padding-left: 20px;
 }
 
-#chloropleth_time_slider {
-	top:100px;
-	bottom: 100px;
-	left: 100px;
-	right: 100px;
+.description-left {
+    padding-right: 20px;
 }
 
-#bar_chart {
-	top:100px;
-	bottom: 100px;
-	left: 100px;
-	right: 100px;
+.pure-g {
+    margin-bottom: 40px;
+}
+
+.small-font {
+    font-size: 14px;
 }
