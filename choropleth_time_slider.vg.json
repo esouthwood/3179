@@ -1,6 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Share of Electricity Consumption from Solar Electricity",
+    "width": 900,
+    "height": 450,
     "params": [
       {
         "name": "Year_selection",
