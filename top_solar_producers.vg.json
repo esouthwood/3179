@@ -29,7 +29,8 @@
             "scale": {"type": "log", "domain": [0.001, 1000]}
           },
           "tooltip": [
-            {"field": "country", "type": "nominal"},
+            {"field": "continent", "type": "nominal", "title": "Continent"},
+            {"field": "country", "type": "nominal", "title": "Country"},
             {"field": "solar_electricity", "type": "quantitative", "title": "Solar Electricity (twh)"}
 
           ]
@@ -61,7 +62,7 @@
             "aggregate": "sum",
             "field": "solar_electricity",
             "type": "quantitative",
-            "title": "Total Solar Electricity Generates"
+            "title": "Total Solar Electricity Generated"
         },
           "y": {"title": "Continent", "field": "continent"}
         },

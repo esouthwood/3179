@@ -64,12 +64,12 @@
           "color": {
             "field": "solar_share_elec",
             "type": "quantitative",
-            "title": "Percent of Electricity Consumption (%)",
+            "title": "Electricity Consumption (%)",
             "scale": {"domain": [0, 20], "scheme": "tealblues"},
             "legend": {"format": ".2"}
           },
           "tooltip": [
-            {"field": "country", "type": "nominal"},
+            {"field": "country", "type": "nominal", "title": "Country"},
             {
               "field": "solar_share_elec",
               "type": "quantitative",
