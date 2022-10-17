@@ -12,7 +12,8 @@
               "param": "brush",
               "title": "Continent",
               "field": "continent",
-              "type": "nominal"
+              "type": "nominal",
+              "scale": {"scheme": "dark2"}
             },
             "value": "lightgray"
           },
