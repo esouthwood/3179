@@ -2,21 +2,27 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Percent of electricity that is solar",
     "params": [
-      {
-        "name": "top",
-        "value": 10,
-        "bind": {
-          "input": "range",
-          "min": 1,
-          "max": 20,
-          "step": 1,
-          "name": "top:  "
+        {
+          "name": "top",
+          "value": 10,
+          "bind": {
+            "input": "range",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "name": "top:  "
+          }
         }
-      }
-    ],
+      ],
     "data": {"url": "world_energy_consumption.csv"},
     "mark": "bar",
     "encoding": {
+      "color": {
+        "title": "Continent",
+        "field": "continent",
+        "type": "nominal",
+        "scale": {"scheme": "dark2"}
+      },
         "x": {
           "type": "quantitative",
           "field": "solar_electricity"},
@@ -24,19 +30,14 @@
           "type": "nominal", 
           "field": "country", 
           "sort": {"field": "solar_electricity", "order": "descending" }
-        },
-        "color": {
-          "field": "continent",
-          "type": "nominal"
         }
     },
-    "transform": [ 
-        {"filter": "datum.country != 'World'"},     
+    "transform": [    
         {
         "aggregate": [
           {"op": "distinct", "field": "solar_electricity", "as": "solar_electricity"}
         ],
-        "groupby": ["country"]
+        "groupby": ["country", "continent"]
       },
       {
         "window": [{"op": "row_number", "field": "", "as": "tag_rank"}],
