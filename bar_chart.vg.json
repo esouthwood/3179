@@ -1,6 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Total Solar Electricty Generation",
+    "width": 400,
+    "height": 400,
     "params": [
         {
           "name": "top",

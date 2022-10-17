@@ -1,6 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Primary Energy Consumption From Coal by Continent",
+    "width": 400,
+    "height": 400,
     "data": {"url": "world_energy_consumption.csv"},
     "mark": {
       "type": "line"
