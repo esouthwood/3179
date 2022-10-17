@@ -32,6 +32,7 @@ body {
 
 #center {
   margin: auto;
+  padding-bottom: 50px;
 }
 
 .description h2,
@@ -49,6 +50,7 @@ h1 {
 
 .pure-g {
     margin-bottom: 40px;
+    padding-bottom: 50px;
 }
 
 .small-font {
