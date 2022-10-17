@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Percent of electricity that is solar",
+    "title": "Total Solar Electricty Generation",
     "params": [
         {
           "name": "top",
@@ -14,7 +14,7 @@
           }
         }
       ],
-    "data": {"url": "world_energy_consumption.csv"},
+    "data": {"url": "world_energy_consumption1.csv"},
     "mark": "bar",
     "encoding": {
       "color": {
@@ -23,19 +23,28 @@
         "type": "nominal",
         "scale": {"scheme": "dark2"}
       },
-        "x": {
-          "type": "quantitative",
-          "field": "solar_electricity"},
-        "y": {
-          "type": "nominal", 
-          "field": "country", 
-          "sort": {"field": "solar_electricity", "order": "descending" }
-        }
+      "x": {
+        "type": "quantitative",
+        "field": "solar_electricity",
+        "title": "Solar Electricity (twh)"
+      },
+      "y": {
+        "type": "nominal", 
+        "field": "country",
+        "title": "Country", 
+        "sort": {"field": "solar_electricity", "order": "descending" }
+      },
+      "tooltip": [
+        {"field": "country", "type": "nominal", "title": "Country"},
+        {"field": "continent", "type": "nominal", "title": "Continent"},
+        {"field": "solar_electricity", "type": "quantitative", "title": "Total Solar Electricy (twh)"}
+      ]
     },
-    "transform": [    
+    "transform": [
+        
         {
         "aggregate": [
-          {"op": "distinct", "field": "solar_electricity", "as": "solar_electricity"}
+          {"op": "sum", "field": "solar_electricity", "as": "solar_electricity"}
         ],
         "groupby": ["country", "continent"]
       },
