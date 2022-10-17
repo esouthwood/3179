@@ -13,7 +13,7 @@
               "title": "Continent",
               "field": "continent",
               "type": "nominal",
-              "scale": {"scheme": "dark2"}
+              "scale": {"domain": ["Africa", "Asia", "Europe", "North America", "Oceania", "South America"], "range": ["#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02"]}
             },
             "value": "lightgray"
           },

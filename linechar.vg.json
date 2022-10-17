@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Primary Energy Consumption From Coal by Continent",
+    "title": "Primary Energy Consumption From Solar by Continent",
     "width": 275,
     "height": 200,
     "data": {"url": "world_energy_consumption.csv"},
@@ -34,7 +34,11 @@
         "type": "quantitative",
         "title": "Solar Energy (%)"
     },
-      "color": {"field": "continent", "type": "nominal", "title": "Continent"}
+      "color": {
+        "field": "continent", 
+        "type": "nominal", 
+        "title": "Continent",
+        "scale": {"domain": ["Africa", "Asia", "Europe", "North America", "Oceania", "South America"], "range": ["#1b9e77", "#d95f02", "#7570b3", "#e7298a", "#66a61e", "#e6ab02"]}}
     },
     "layer": [{
         "mark": "line"
