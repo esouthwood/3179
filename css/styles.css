@@ -22,6 +22,13 @@ body {
     width: 100%;
 }
 
+.vis-container-2 {
+  margin: auto;
+}
+
+#center {
+  margin: auto;
+}
 
 .description h2,
 h1 {
