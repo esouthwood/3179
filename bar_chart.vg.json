@@ -16,7 +16,7 @@
           }
         }
       ],
-    "data": {"url": "world_energy_consumption1.csv"},
+    "data": {"url": "world_energy_consumption.csv"},
     "mark": "bar",
     "encoding": {
       "color": {
@@ -31,9 +31,9 @@
         "title": "Solar Electricity (twh)"
       },
       "y": {
-        "type": "nominal", 
+        "type": "nominal",
         "field": "country",
-        "title": "Country", 
+        "title": "Country",
         "sort": {"field": "solar_electricity", "order": "descending" }
       },
       "tooltip": [
@@ -43,7 +43,7 @@
       ]
     },
     "transform": [
-        
+
         {
         "aggregate": [
           {"op": "sum", "field": "solar_electricity", "as": "solar_electricity"}
